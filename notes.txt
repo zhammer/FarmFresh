@@ -1,0 +1,41 @@
+#######
+#NOTES#
+#######
+
+-farmfresh button -- should be a wrapper, renders props.children with some style
+
+######
+#DATA#
+######
+
+#VendorData#
+{
+    name: '',
+    description: '',
+    location: '',
+    price: {},
+    priceUnit: '',
+    rating: {}
+}
+
+############
+#COMPONENTS#
+############
+
+<VendorButton />
+
+#PROPS#
+-Name
+-Location
+-isSelected
+    how to implement this on stateless functions?
+    
+#IMPORTS#
+-<PriceMarker />
+-<StarRating />
+-<PurchaseButton />
+
+#FUNCTIONALITY#
+-if isSelected:
+    render <StarRating /> <PurchaseButton />
+    if isSelected display description and purhcase button underneath
