@@ -1,3 +1,15 @@
+######
+#TODO#
+######
+
+-Switch over to ES6
+
+###########
+#QUESTIONS#
+###########
+
+What's a good way to write test classes?
+
 #######
 #NOTES#
 #######
@@ -14,7 +26,7 @@
     description: '',
     location: '',
     price: {},
-    priceUnit: '',
+    : '',
     rating: {}
 }
 
@@ -22,11 +34,13 @@
 #COMPONENTS#
 ############
 
-<VendorButton />
+<Vendor />
+
+#NOTES#
+-each vendor has a price for each item
 
 #PROPS#
--Name
--Location
+-vendorData
 -isSelected
     how to implement this on stateless functions?
     
@@ -36,6 +50,7 @@
 -<PurchaseButton />
 
 #FUNCTIONALITY#
+-if not selected:
+    render <StarRating /> <LongButton />
 -if isSelected:
-    render <StarRating /> <PurchaseButton />
-    if isSelected display description and purhcase button underneath
+    render description, text, <PurchaseButton />
