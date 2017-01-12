@@ -5,7 +5,7 @@ class HelloES6 extends React.Component {
   render() {
     return (
       <div>
-        Hello, World!
+        Hello ES6!
       </div>
     );
   }

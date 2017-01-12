@@ -1,22 +1,18 @@
-var React = require('react');
-var PropTypes = React.PropTypes;
-var Vendor = require('./Vendor.jsx');
+import React, { PropTypes } from 'react';
+import Vendor from './Vendor.jsx';
 
-function Vendors (props) {
-    var vendors = props.dataList.map(function(data){
-        return (
-            <Vendor
-                key={data.name}
-                data={data}
-                isSelected={props.selectedVendor === data.name}
-                onClick={props.onClick}/>
-        )
-    });
+const Vendors = ({ dataList, selectedVendor, onClick }) => {
     return (
         <div>
-            {vendors}
+            {dataList.map((data) => {
+                return <Vendor
+                            key={data.name}
+                            data={data}
+                            isSelected={selectedVendor === data.name}
+                            onClick={(name) => onClick(name)}/>
+            })}
         </div>
-    )
+    ) 
 }
 
 Vendors.propTypes = {
@@ -25,5 +21,4 @@ Vendors.propTypes = {
     onClick: PropTypes.func.isRequired
 }
 
-
-module.exports = Vendors;
+export default Vendors;

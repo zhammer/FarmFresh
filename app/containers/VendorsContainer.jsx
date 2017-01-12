@@ -1,5 +1,5 @@
-var React = require('react');
-var Vendors = require('../components/Vendors.jsx');
+import React from 'react';
+import Vendors from '../components/Vendors.jsx';
 
 var VENDOR_DATA_0 = {
     name: 'Fresh Catch',
@@ -21,26 +21,22 @@ var VENDOR_DATA_1 = {
 
 var DATA_LIST = [VENDOR_DATA_0, VENDOR_DATA_1];
 
-var VendorsContainer = React.createClass({
-    getInitialState: function () {
-        return {
-            selectedVendor: '',
-        }
-    },
-    handleClick: function (name) {
-        var selected = this.state.selectedVendor === 'Shuckers'? 'Fresh Catch' : 'Shuckers';
-        this.setState({
-            selectedVendor: selected,
-        })
-    },
-    render: function () {
+class VendorsContainer extends React.Component {
+    constructor (props) {
+        super(props);
+        this.state = { selectedVendor: '' };
+    }
+    handleClick (name) {
+        this.setState({ selectedVendor: name });
+    }
+    render () {
         return (
             <Vendors
-                onClick={this.handleClick}
+                onClick={(name) => this.handleClick(name)}
                 selectedVendor={this.state.selectedVendor}
                 dataList={DATA_LIST}/>
         )
-    }
-});
+    } 
+}
 
-module.exports = VendorsContainer;
+export default VendorsContainer;

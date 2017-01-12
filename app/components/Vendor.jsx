@@ -1,18 +1,17 @@
-import React from 'react';
-var PropTypes = React.PropTypes;
+import React, { PropTypes } from 'react';
 import StarRating from './StarRating.jsx';
-var PriceMarker = require('./PriceMarker.jsx');
+import PriceMarker from './PriceMarker.jsx';
 
-const Vendor = (props) => (
+const Vendor = ({ data, isSelected, onClick }) => (
     <div>
        <div>
-           <StarRating rating={props.data.rating} />
+           <StarRating rating={data.rating} />
        </div>
-       <button type='button' onClick={props.onClick}>
-           {props.data.name}, {props.data.location}
-           <PriceMarker price={props.data.price} unit={props.data.unit} />
+       <button type='button' onClick={() => onClick(data.name)}>
+           {data.name}, {data.location}
+           <PriceMarker price={data.price} unit={data.unit} />
        </button>
-       {props.isSelected && <div>{props.data.description}</div>}
+       {isSelected && <div>{data.description}</div>}
    </div>
 );
 
