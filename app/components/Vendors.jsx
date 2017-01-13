@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import Vendor from './Vendor.jsx';
 
-const Vendors = ({ dataList, selectedVendor, onClick }) => {
+const Vendors = ({ dataList, selectedVendor, onClick, productName, onPurchase, onUpdateQuantity, justPurchased }) => {
     return (
         <div>
             {dataList.map((data) => {
@@ -9,7 +9,11 @@ const Vendors = ({ dataList, selectedVendor, onClick }) => {
                             key={data.name}
                             data={data}
                             isSelected={selectedVendor === data.name}
-                            onClick={(name) => onClick(name)}/>
+                            onClick={(name) => onClick(name)}
+                            productName={productName}
+                            onUpdateQuantity={(e) => onUpdateQuantity(e)}
+                            onPurchase={() => onPurchase()}
+                            justPurchased={justPurchased}/>
             })}
         </div>
     ) 
@@ -18,7 +22,11 @@ const Vendors = ({ dataList, selectedVendor, onClick }) => {
 Vendors.propTypes = {
     dataList: PropTypes.array.isRequired,
     selectedVendor: PropTypes.string,
-    onClick: PropTypes.func.isRequired
+    onClick: PropTypes.func.isRequired,
+    onPurchase: PropTypes.func.isRequired,
+    onUpdateQuantity: PropTypes.func.isRequired,
+    productName: PropTypes.string.isRequired,
+    justPurchased: PropTypes.number,
 }
 
 export default Vendors;
