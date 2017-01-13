@@ -3,6 +3,9 @@ import StarRating from './StarRating.jsx';
 import PriceMarker from './PriceMarker.jsx';
 import PurchaseButton from './PurchaseButton.jsx';
 import helpers from '../utils/UnitHelpers.jsx';
+import { space } from '../styles';
+
+//later should pass VendorData and Product Data (color, name, unit)
 
 const Vendor = ({ data, isSelected, onClick, productName, onPurchase, onUpdateQuantity, justPurchased }) => {
     var description, purchaseButton, confirmationMessage;
@@ -19,11 +22,11 @@ const Vendor = ({ data, isSelected, onClick, productName, onPurchase, onUpdateQu
         }
     }
     return (
-        <div>
+        <div style={space}>
            <div>
                <StarRating rating={data.rating} />
            </div>
-           <button type='button' onClick={() => onClick(data.name)}>
+           <button className='btn btn-lg btn-success' type='button' onClick={() => onClick(data.name)}>
                {data.name}, {data.location}
                <PriceMarker price={data.price} unit={data.unit} />
            </button>
