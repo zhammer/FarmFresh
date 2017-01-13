@@ -7,28 +7,28 @@ import { space } from '../styles';
 
 //later should pass VendorData and Product Data (color, name, unit)
 
-const Vendor = ({ data, isSelected, onClick, productName, onPurchase, onUpdateQuantity, justPurchased }) => {
+const Vendor = ({ vendorData, isSelected, onClick, product, onPurchase, onUpdateQuantity, justPurchased }) => {
     var description, purchaseButton, confirmationMessage;
     if (isSelected) {
-        description = <div>{data.description}</div>;
+        description = <div>{vendorData.description}</div>;
         purchaseButton = <PurchaseButton
-                               price={data.price}
-                               unit={data.unit}
+                               price={vendorData.price}
+                               unit={product.unit}
                                quantity={0}
                                onPurchase={() => onPurchase()}
                                onUpdateQuantity={(e) => onUpdateQuantity(e)}/>
         if (justPurchased) {
-            confirmationMessage = <div>(You added {justPurchased} {helpers.toLongPlural(data.unit)} of {productName} to your cart!)</div>
+            confirmationMessage = <div>(You added {justPurchased} {helpers.toLongPlural(product.unit)} of {product.name} to your cart!)</div>
         }
     }
     return (
         <div style={space}>
            <div>
-               <StarRating rating={data.rating} />
+               <StarRating rating={vendorData.rating} />
            </div>
-           <button className='btn btn-lg btn-success' type='button' onClick={() => onClick(data.name)}>
-               {data.name}, {data.location}
-               <PriceMarker price={data.price} unit={data.unit} />
+           <button className='btn btn-lg btn-success' type='button' onClick={() => onClick()}>
+               {vendorData.name}, {vendorData.location}
+               <PriceMarker price={vendorData.price} unit={product.unit} />
            </button>
             {description}
             {confirmationMessage}
@@ -39,7 +39,8 @@ const Vendor = ({ data, isSelected, onClick, productName, onPurchase, onUpdateQu
 
 
 Vendor.propTypes = {
-    data: PropTypes.object.isRequired,
+    vendorData: PropTypes.object.isRequired,
+    product: PropTypes.object.isRequired,
     isSelected: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired,
     productName: PropTypes.string.isRequired,

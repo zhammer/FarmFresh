@@ -2,55 +2,50 @@
 #TODO#
 ######
 
--Switch over to ES6
+-Finish functional views
+    -Product ✓
+    -Search
+    -Category
+    -Cart (can save for later)
+-Add DB functionality
+-Add Flux for cart storing
+-Go over flexbox tutorial again
+-Style
+
+
+
+##############
+#PRODUCT PAGE#
+##############
+
+- complete for now
+
+#############
+#SEARCH PAGE#
+#############
+
+<SearchBar />
+<Results />
+
+onChange, searchbar's current input should be queried for words that start with current prefix
+OR: all products should be initially loaded, then sorted in app?
+there should be a cap on max results
+
+onEnter: go to that product's page only if complete match, same link as button, push name as query
+
+###############
+#CATEGORY PAGE#
+###############
+
+- path: /category/:name
+- queries db for relationship category <-->> product
+- displays as buttons, like in search results
 
 ###########
-#QUESTIONS#
+#CART PAGE#
 ###########
 
-What's a good way to write test classes?
-
-#######
-#NOTES#
-#######
-
--farmfresh button -- should be a wrapper, renders props.children with some style
-
-######
-#DATA#
-######
-
-#VendorData#
-{
-    name: '',
-    description: '',
-    location: '',
-    price: {},
-    : '',
-    rating: {}
-}
-
-############
-#COMPONENTS#
-############
-
-<Vendor />
-
-#NOTES#
--each vendor has a price for each item
-
-#PROPS#
--vendorData
--isSelected
-    how to implement this on stateless functions?
-    
-#IMPORTS#
--<PriceMarker />
--<StarRating />
--<PurchaseButton />
-
-#FUNCTIONALITY#
--if not selected:
-    render <StarRating /> <LongButton />
--if isSelected:
-    render description, text, <PurchaseButton />
+-'Cart' with shoppingcart.img in bar, as if product
+-Lists items in cart
+-Total price, confirm purchase button.
+-Confirm purchase for now is non-functional

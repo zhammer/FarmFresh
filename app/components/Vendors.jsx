@@ -2,15 +2,16 @@ import React, { PropTypes } from 'react';
 import Vendor from './Vendor.jsx';
 import { transparentBg } from '../styles';
 
-const Vendors = ({ dataList, selectedVendor, onClick, productName, onPurchase, onUpdateQuantity, justPurchased }) => (
-        <div className="jumbotron col-sm-12 text-center" style={transparentBg}>
-        {dataList.map((data) => {
+const Vendors = ({ vendors, selectedVendor, onClick, product, onPurchase, onUpdateQuantity, justPurchased }) => (
+        <div>
+        {vendors.map((vendor) => {
             return <Vendor
-                        key={data.name}
-                        data={data}
-                        isSelected={selectedVendor === data.name}
-                        onClick={(name) => onClick(name)}
-                        productName={productName}
+                        key={vendor.name}
+                        vendorData={vendor}
+                        product={product}
+                        isSelected={selectedVendor === vendor.name}
+                        onClick={() => onClick(vendor.name)}
+                        productName={product.name}
                         onUpdateQuantity={(e) => onUpdateQuantity(e)}
                         onPurchase={() => onPurchase()}
                         justPurchased={justPurchased}/>
@@ -19,12 +20,12 @@ const Vendors = ({ dataList, selectedVendor, onClick, productName, onPurchase, o
 )
 
 Vendors.propTypes = {
-    dataList: PropTypes.array.isRequired,
+    vendors: PropTypes.array.isRequired,
     selectedVendor: PropTypes.string,
     onClick: PropTypes.func.isRequired,
     onPurchase: PropTypes.func.isRequired,
     onUpdateQuantity: PropTypes.func.isRequired,
-    productName: PropTypes.string.isRequired,
+    product: PropTypes.object.isRequired,
     justPurchased: PropTypes.number,
 }
 
