@@ -9,6 +9,7 @@ import Tester from '../utils/Tester.jsx';
 import HelloES6 from '../utils/HelloES6.jsx';
 import ProductViewContainer from '../containers/ProductViewContainer.jsx';
 import SearchViewContainer from '../containers/SearchViewContainer.jsx';
+import CategoryViewContainer from '../containers/CategoryViewContainer.jsx';
 
 var routes = (
   <Router history={hashHistory}>
@@ -16,6 +17,7 @@ var routes = (
             <IndexRoute component={SearchViewContainer} />
             <Route path='/tester' component={Tester} />
             <Route path='/product/:name' component={ProductViewContainer} />
+            <Route path='/category/:name' component={CategoryViewContainer} />
         </Route>
   </Router>
 );

@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react';
+import React, { Component } from 'react';
 import ProductView from '../components/ProductView.jsx';
 
-class ProductViewContainer extends React.Component {
+class ProductViewContainer extends Component {
     constructor (props) {
         super(props);
         this.state = { 

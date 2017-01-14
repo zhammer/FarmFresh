@@ -41,6 +41,13 @@ var PRODUCTS = [
     'kale'
 ]
 
+var CATEGORY_MAP = {
+    dairy: ['milk', 'cream', 'butter'],
+    herbs: ['sage', 'rosemary', 'thyme', 'basil'],
+    vegetables: ['cauliflower', 'lettuce', 'potato', 'tomato'],
+    seafood: ['shrimp', 'swordfish', 'scallops', 'lobster']
+}
+
 var CATEGORIES = [
     'dairy',
     'herbs',
@@ -49,9 +56,8 @@ var CATEGORIES = [
     'fruits',
     'meats',
     'pastas',
-    'shellfish',
+    'seafood',
 ]
-
 
 //End of mock data
 
@@ -84,6 +90,9 @@ var dbHelpers = {
     //bad test version
     isProduct (name) {
         return (PRODUCTS.indexOf(name) > -1)
+    },
+    productsInCategory (name) {
+        return CATEGORY_MAP[name]
     },
     //add 'max'
     suggestions (text, isCategorySearch) {
