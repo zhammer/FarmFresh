@@ -41,14 +41,35 @@ var PRODUCTS = [
     'kale'
 ]
 
+var CATEGORIES = [
+    'dairy',
+    'herbs',
+    'pastries',
+    'vegetables',
+    'fruits',
+    'meats',
+    'pastas',
+    'shellfish',
+]
+
 
 //End of mock data
 
 
 //This is an awful, slow implementation of autoComplete. Once I have db initialized I will use a DB prefix query.
 //or load all products into trie and implement autoCopmlete that way.
-function autoComplete (string) {
-    var output = []
+function autoComplete (string, array) {
+    if (string.charAt(0) === '#') {
+        string = string.substring(1);
+    }
+    var output = [];
+    var n = string.length;
+    for (var element of array) {
+        if (element.substring(0, n) === string) {
+            output.push(element);
+        }
+    }
+    return output;
     
 }
 
@@ -59,6 +80,14 @@ var dbHelpers = {
     },
     getVendors (name) {
         return VENDORS_DB[name];
+    },
+    //bad test version
+    isProduct (name) {
+        return (PRODUCTS.indexOf(name) > -1)
+    },
+    //add 'max'
+    suggestions (text, isCategorySearch) {
+        return autoComplete(text, isCategorySearch ? CATEGORIES : PRODUCTS);
     }
 }
 
