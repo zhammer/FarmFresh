@@ -3,11 +3,12 @@ import dbHelpers from '../utils/DBHelpers.jsx';
 import MainWrapper from './MainWrapper.jsx';
 import SearchResults from '../components/SearchResults.jsx';
 import BarWrapper from './BarWrapper.jsx';
+import StringHelpers from '../utils/StringHelpers.jsx';
 
 const CategoryView = ({ name, onSelectResult }) => (
     <MainWrapper>
         <div>
-            <BarWrapper title={'#' + name} color={dbHelpers.getCategoryColor(name)}/>
+            <BarWrapper title={'#' + StringHelpers.capitalizeFirstLetter(name)} color={dbHelpers.getCategoryColor(name)}/>
         </div>
         <SearchResults
             results={dbHelpers.getProductsInCategory(name)}

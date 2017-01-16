@@ -1,13 +1,13 @@
 import React from 'react';
+import Header from './Header.jsx';
 
-class Main extends React.Component{
-    render () {
-        return (
-            <div>
-                {this.props.children}
-            </div>
-        )
-    }
-}
+const Main = ({ children }) => (
+    <div>
+        <Header />
+        <div>
+            {children}
+        </div>
+    </div>
+);
 
 export default Main;

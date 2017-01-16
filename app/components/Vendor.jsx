@@ -5,6 +5,7 @@ import LongButton from './LongButton.jsx';
 import helpers from '../utils/UnitHelpers.jsx';
 import priceMarker from './PriceMarker.jsx';
 import ParagraphWrapper from './ParagraphWrapper.jsx';
+import AlertWrapper from './AlertWrapper.jsx';
 import { space } from '../styles';
 
 //later should pass VendorData and Product Data (color, name, unit)
@@ -20,7 +21,7 @@ const Vendor = ({ vendorData, isSelected, onClick, product, onPurchase, onUpdate
                                onPurchase={() => onPurchase()}
                                onUpdateQuantity={(e) => onUpdateQuantity(e)}/>
         if (justPurchased) {
-            confirmationMessage = <div>(You added {justPurchased} {helpers.toLongPlural(product.unit)} of {product.name} to your cart!)</div>
+            confirmationMessage = <AlertWrapper>(You added {justPurchased} {helpers.toLongPlural(product.unit)} of {product.name} to your cart!)</AlertWrapper>
         }
     }
     return (

@@ -14,4 +14,4 @@ const ParagraphWrapper = ({ children }) => (
     </div>
 );
 
-export default ParagraphWrapper
+export default ParagraphWrapper;

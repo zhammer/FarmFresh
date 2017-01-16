@@ -4,7 +4,7 @@ import { transparentBg } from '../styles';
 var style = {
     width: '50%',
     margin: '0 auto',
-    marginTop: '150px',
+    marginTop: '20px',
 }
 
 const MainWrapper = ({ children }) => (
