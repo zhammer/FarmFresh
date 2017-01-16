@@ -7,10 +7,10 @@ import BarWrapper from './BarWrapper.jsx';
 const CategoryView = ({ name, onSelectResult }) => (
     <MainWrapper>
         <div>
-            <BarWrapper title={'#' + name} />
+            <BarWrapper title={'#' + name} color={dbHelpers.getCategoryColor(name)}/>
         </div>
         <SearchResults
-            results={dbHelpers.productsInCategory(name)}
+            results={dbHelpers.getProductsInCategory(name)}
             onSelectResult={(product) => onSelectResult(product)} />
     </MainWrapper>
 );

@@ -6,7 +6,7 @@ function styleWithColor (color) {
     return {
         width: '170px',
         height: '90px',
-        margin: '10px',
+        margin: '20px',
         fontFamily: 'Andale Mono',
         letterSpacing: '-.3px',
         fontSize: '30px',

@@ -4,7 +4,7 @@ var paragraphStyle = {
     fontFamily: 'Andale Mono',
     fontSize: '18px',
     letterSpacing: '-.3px',
-    color: '#313638',
+    color: '#FFFFFF',
     marginTop: '10px'
 }
 

@@ -23,7 +23,7 @@ var VENDORS = {
 
 var CATEGORIES = {
     meats: {name: 'meats', color: '#640D14', products: ['lamb', 'chicken']},
-    seafood: {name: 'seafood', color: '#FFFFFA', products: ['lobster', 'crab']}
+    seafood: {name: 'seafood', color: '#FFFFFA', products: ['lobster', 'scallop']}
 }
 
 var PRODUCTS = {
@@ -72,8 +72,8 @@ var dbHelpers = {
         })
     },
     getProductsInCategory (category) {
-        return CATEGORIES[category].products.map((product) => {
-            return PRODUCTS[product];
+        return CATEGORIES[category].products.map((name) => {
+            return [name, PRODUCTS[name].color];
         })
     },
     suggestCategories (string) {
@@ -89,6 +89,9 @@ var dbHelpers = {
     getProductColor (product) {
         return PRODUCTS[product].color;
     },
+    getCategoryColor(category) {
+        return CATEGORIES[category].color;
+    }
 }
 
 export default dbHelpers;

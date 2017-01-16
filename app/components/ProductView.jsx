@@ -8,7 +8,9 @@ import BarWrapper from './BarWrapper.jsx';
 const ProductView = ({ productName, selectedVendor, justPurchased, onClick, onUpdateQuantity, onPurchase }) => (
     <MainWrapper >
         <div>
-            <BarWrapper title={StringHelpers.capitalizeFirstLetter(productName)} />
+            <BarWrapper
+                title={StringHelpers.capitalizeFirstLetter(productName)}
+                color={dbHelpers.getProductColor(productName)}/>
         </div>
         <Vendors
             onClick={(vendorName) => onClick(vendorName)}

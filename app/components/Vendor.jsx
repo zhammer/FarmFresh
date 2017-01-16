@@ -14,7 +14,7 @@ const Vendor = ({ vendorData, isSelected, onClick, product, onPurchase, onUpdate
     if (isSelected) {
         description = <ParagraphWrapper>{vendorData.description}</ParagraphWrapper>;
         purchaseButton = <PurchaseButton
-                               price={vendorData.price}
+                               price={vendorData.productPrices[product.name]}
                                unit={product.unit}
                                quantity={0}
                                onPurchase={() => onPurchase()}

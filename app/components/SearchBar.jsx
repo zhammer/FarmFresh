@@ -7,7 +7,6 @@ require('../../main.css');
  */
 
 var containerStyle = {
-    width: '350px',
     height: '90px',
     background: '#C9C9CE',
     verticalAlign: 'middle',
@@ -16,10 +15,8 @@ var containerStyle = {
 }
 
 var inputStyle = {
-    width: '350px',
+    width: '100%',
     height: '90px',
-    marginLeft: 'auto',
-    marginRight: 'auto',
     background: '#ffffff',
     border: 'none',
     fontFamily: 'Andale Mono',
@@ -38,9 +35,9 @@ var inputStyle = {
 
 var iconStyle = {
     position: 'absolute',
-    top: '15%',
+    top: '0%',
     right: '5%',
-    fontSize: '20px',
+    fontSize: '40px',
     marginLeft: '17px',
     marginTop: '17px',
     zIndex: '1',
@@ -48,7 +45,7 @@ var iconStyle = {
 }
 
 const SearchBar = ({ onChange, onClick, placeHolder }) => (
-    <div style={styles.center}>
+    <div>
         <form>
             <div style={containerStyle}>
                 <span className="icon" style={iconStyle}><i className="fa fa-search"></i></span>
