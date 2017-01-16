@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import SearchBar from '../components/SearchBar.jsx';
 import SearchResults from '../components/SearchResults.jsx';
 import dbHelpers from '../utils/DBHelpers.jsx';
+import MainWrapper from '../components/MainWrapper.jsx';
 
 class SearchViewContainer extends React.Component {
     constructor (props) {
@@ -31,7 +32,7 @@ class SearchViewContainer extends React.Component {
         if (this.isCategorySearch()) {
             search = search.substring(1);
             if (dbHelpers.isCategory(search)) {
-                routeToCategory(search);
+                this.routeToCategory(search);
             }
         } else {
             if (dbHelpers.isProduct(search)) {
@@ -51,17 +52,18 @@ class SearchViewContainer extends React.Component {
         var searchResults;
         if (this.state.search) {
             searchResults = <SearchResults
-                                results={dbHelpers.suggestions(this.state.search, this.isCategorySearch()).slice(0, 4)}
+                                results={this.isCategorySearch() ? dbHelpers.suggestCategories(this.state.search) : dbHelpers.suggestProducts(this.state.search)}
                                 onSelectResult={(name) => this.handleSelectResult(name)}
                                 resultsAreHashtags={this.isCategorySearch()}/>
         }
         return (
-            <div>
+            <MainWrapper>
                 <SearchBar
-                onClick={() => this.handleSubmit()}
-                onChange={(e) => this.handleChange(e)}/>
+                    onClick={() => this.handleSubmit()}
+                    onChange={(e) => this.handleChange(e)}
+                    placeHolder="What ingredients do you need?"/>
                 {searchResults}
-            </div>
+            </MainWrapper>
         )
     }
 }

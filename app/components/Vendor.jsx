@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react';
 import StarRating from './StarRating.jsx';
-import PriceMarker from './PriceMarker.jsx';
 import PurchaseButton from './PurchaseButton.jsx';
+import LongButton from './LongButton.jsx';
 import helpers from '../utils/UnitHelpers.jsx';
+import priceMarker from './PriceMarker.jsx';
+import ParagraphWrapper from './ParagraphWrapper.jsx';
 import { space } from '../styles';
 
 //later should pass VendorData and Product Data (color, name, unit)
@@ -10,7 +12,7 @@ import { space } from '../styles';
 const Vendor = ({ vendorData, isSelected, onClick, product, onPurchase, onUpdateQuantity, justPurchased }) => {
     var description, purchaseButton, confirmationMessage;
     if (isSelected) {
-        description = <div>{vendorData.description}</div>;
+        description = <ParagraphWrapper>{vendorData.description}</ParagraphWrapper>;
         purchaseButton = <PurchaseButton
                                price={vendorData.price}
                                unit={product.unit}
@@ -26,10 +28,11 @@ const Vendor = ({ vendorData, isSelected, onClick, product, onPurchase, onUpdate
            <div>
                <StarRating rating={vendorData.rating} />
            </div>
-           <button className='btn btn-lg btn-success' type='button' onClick={() => onClick()}>
-               {vendorData.name}, {vendorData.location}
-               <PriceMarker price={vendorData.price} unit={product.unit} />
-           </button>
+           <LongButton
+               leftTitle={vendorData.name + ', ' + vendorData.location}
+               rightTitle={priceMarker('$', vendorData.productPrices[product.name], product.unit)}
+               onClick={() => onClick()}
+               color={product.color}/>
             {description}
             {confirmationMessage}
             {purchaseButton}

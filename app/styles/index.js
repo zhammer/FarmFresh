@@ -6,6 +6,10 @@ var styles = {
     space: {
         margin: '20px',
     },
+    center: {
+        marginLeft: 'auto',
+        marginRight: 'auto',
+    }
 }
 
 

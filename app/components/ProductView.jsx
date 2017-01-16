@@ -1,23 +1,24 @@
 import React, { PropTypes } from 'react';
 import Vendors from '../components/Vendors.jsx';
-import { transparentBg } from '../styles';
 import StringHelpers from '../utils/StringHelpers.jsx';
 import dbHelpers from '../utils/DBHelpers.jsx';
+import MainWrapper from './MainWrapper.jsx';
+import BarWrapper from './BarWrapper.jsx';
 
 const ProductView = ({ productName, selectedVendor, justPurchased, onClick, onUpdateQuantity, onPurchase }) => (
-    <div className="jumbotron col-sm-12 text-center" style={transparentBg}>
+    <MainWrapper >
         <div>
-            TITLE BAR: {StringHelpers.capitalizeFirstLetter(productName)}
+            <BarWrapper title={StringHelpers.capitalizeFirstLetter(productName)} />
         </div>
         <Vendors
             onClick={(vendorName) => onClick(vendorName)}
             selectedVendor={selectedVendor}
-            vendors={dbHelpers.getVendors(productName)}
+            vendors={dbHelpers.getVendorsOfProduct(productName)}
             product={dbHelpers.getProduct(productName)}
             onUpdateQuantity={(e) => onUpdateQuantity(e)}
             onPurchase={() => onPurchase()}
             justPurchased={justPurchased}/>
-    </div>
+    </MainWrapper>
 );
 
 ProductView.propTypes = {

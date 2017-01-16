@@ -1,7 +1,11 @@
 import React, { PropTypes } from 'react';
 
 var style = {
-    color: 'Gold'
+    color: 'Gold',
+    float: 'right',
+    letterSpacing: '2px',
+    fontFamily: 'Arial',
+    fontSize: '20px',
 }
 
 const StarRating = ( { rating, outOf = 5 } ) => (
