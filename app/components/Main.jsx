@@ -2,8 +2,7 @@ import React from 'react';
 import Header from './Header.jsx';
 
 const Main = ({ children }) => (
-    <div>
-        <Header />
+    <div style={{marginTop: '150px'}}>
         <div>
             {children}
         </div>

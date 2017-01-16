@@ -5,7 +5,6 @@ var style = {
     marginLeft: 'auto',
     marginRight: 'auto',
     color: 'white',
-    marginTop: '150px',
 }
 
 const Header = (props) => (
