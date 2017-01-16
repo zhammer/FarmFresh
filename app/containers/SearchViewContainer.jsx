@@ -3,6 +3,7 @@ import SearchBar from '../components/SearchBar.jsx';
 import SearchResults from '../components/SearchResults.jsx';
 import dbHelpers from '../utils/DBHelpers.jsx';
 import MainWrapper from '../components/MainWrapper.jsx';
+import Logo from '../components/Logo.jsx';
 
 class SearchViewContainer extends React.Component {
     constructor (props) {
@@ -49,12 +50,16 @@ class SearchViewContainer extends React.Component {
         this.isCategorySearch() ? this.routeToCategory(name) : this.routeToProduct(name);
     }
     render () {
-        var searchResults;
+        var searchResults, logo;
         if (this.state.search) {
             searchResults = <SearchResults
                                 results={this.isCategorySearch() ? dbHelpers.suggestCategories(this.state.search) : dbHelpers.suggestProducts(this.state.search)}
                                 onSelectResult={(name) => this.handleSelectResult(name)}
                                 resultsAreHashtags={this.isCategorySearch()}/>
+        }
+        else {
+            logo = <Logo
+                       source='../../assets/images/FarmersMarket.png' />;
         }
         return (
             <MainWrapper>
@@ -63,6 +68,7 @@ class SearchViewContainer extends React.Component {
                     onChange={(e) => this.handleChange(e)}
                     placeHolder="What ingredients do you need?"/>
                 {searchResults}
+                    {logo}
             </MainWrapper>
         )
     }

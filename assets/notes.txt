@@ -1,0 +1,8 @@
+######
+#TODO#
+######
+
+- Cart Storing
+- Logo
+- Header
+- Image for product search

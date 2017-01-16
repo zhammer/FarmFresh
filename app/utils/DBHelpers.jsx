@@ -1,11 +1,11 @@
 /* MOCK DB */
 
 var VENDORS = {
-    freshcatch: {
-        name: 'Fresh Catch',
-        location: 'Pawtucket RI',
+    thelocalcatch: {
+        name: 'The Local Catch',
+        location: 'Narragansett RI',
         rating: 3,
-        description: 'Fresh caught seafood caught fresh every day. Our team works tirelessly to get you the best fish!',
+        description: ' The Local Catch is a local seafood processor and wholesaler that markets local seafood to local consumers. The Local Catch strategy supports Rhode Island fishermen, is better for the environment, and provides a fresher, tastier seafood product to our community.',
         productPrices: {
             lobster: 30,
             scallops: 18,
@@ -70,7 +70,7 @@ var VENDORS = {
         rating: 2,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         productPrices: {
-            linguini: 8,
+            linguine: 8,
             lemon: 4,
             cabbage: 7,
             kale: 6
@@ -82,7 +82,7 @@ var VENDORS = {
         rating: 5,
         description: 'The natural aroma of beets drifts into the bedrooms and makes you dream of simpler times. The dawn goose-walk will tug at your heart strings. Table making never seemed so possible! You will never wanna leave your room. The architecture reminds one of a quaint tuscan beet farm.',
         productPrices: {
-            linguini: 4,
+            linguine: 4,
             lemon: 3,
             cabbage: 9,
             kale: 10
@@ -97,17 +97,17 @@ var CATEGORIES = {
 }
 
 var PRODUCTS = {
-    lobster: {name: 'lobster', unit: 'lb', color: '#FABABA', vendors: ['freshcatch', 'shuckers']},
-    linguini: {name: 'linguini', unit: 'lb', color: '#FFE09F', vendors: ['loremipsumfarms', 'schrutefarms']},
-    chicken: {name: 'chicken', unit: 'lb', color: '#FFE0B5', vendors: ['aquidneckfarms', 'patspastured']},
-    lamb: {name: 'lamb', unit: 'lb', color: '#7E5920', vendors: ['aquidneckfarms', 'patspastured']},
-    lavendar: {name: 'lavendar', unit: 'oz', color: '#BEEF9E', vendors: ['farmacyherbs', 'blueskyfarms']},
-    tarragon: {name: 'tarragon', unit: 'oz', color: '#40F99B', vendors: ['farmacyherbs', 'blueskyfarms', 'freshcatch']},
-    rosemary: {name: 'rosemary', unit: 'oz', color: '#7EA172', vendors: ['farmacyherbs', 'blueskyfarms']},
-    scallops: {name: 'scallops', unit: 'lb', color: '#EABD8C', vendors: ['freshcatch', 'shuckers']},
-    lemon: {name: 'lemon', unit: 'lb', color: '#FFDA72', vendors: ['loremipsumfarms', 'schrutefarms']},
-    cabbage: {name: 'cabbage', unit: 'lb', color: '#D6F6DD', vendors: ['loremipsumfarms', 'schrutefarms']},
-    kale: {name: 'kale', unit: 'lb', color: '#1E3F20', vendors: ['loremipsumfarms', 'schrutefarms']},
+    lobster: {name: 'lobster', unit: 'lb', color: '#FABABA', vendors: ['thelocalcatch', 'shuckers'], image: '../../assets/images/lobster.png'},
+    linguine: {name: 'linguine', unit: 'lb', color: '#FFE09F', vendors: ['loremipsumfarms', 'schrutefarms'], image: '../../assets/images/linguine.png'},
+    chicken: {name: 'chicken', unit: 'lb', color: '#FFE0B5', vendors: ['aquidneckfarms', 'patspastured'], image: '../../assets/images/chicken.png'},
+    lamb: {name: 'lamb', unit: 'lb', color: '#7E5920', vendors: ['aquidneckfarms', 'patspastured'], image: '../../assets/images/lamb.png'},
+    lavendar: {name: 'lavendar', unit: 'oz', color: '#BEEF9E', vendors: ['farmacyherbs', 'blueskyfarms'], image: '../../assets/images/lavendar.png'},
+    tarragon: {name: 'tarragon', unit: 'oz', color: '#40F99B', vendors: ['farmacyherbs', 'blueskyfarms', 'thelocalcatch'], image: '../../assets/images/tarragon.png'},
+    rosemary: {name: 'rosemary', unit: 'oz', color: '#7EA172', vendors: ['farmacyherbs', 'blueskyfarms'], image: '../../assets/images/rosemary.png'},
+    scallops: {name: 'scallops', unit: 'lb', color: '#EABD8C', vendors: ['thelocalcatch', 'shuckers'], image: '../../assets/images/scallop.png'},
+    lemon: {name: 'lemon', unit: 'lb', color: '#FFDA72', vendors: ['loremipsumfarms', 'schrutefarms'], image: '../../assets/images/lemon.png'},
+    cabbage: {name: 'cabbage', unit: 'lb', color: '#D6F6DD', vendors: ['loremipsumfarms', 'schrutefarms'], image: '../../assets/images/cabbage.png'},
+    kale: {name: 'kale', unit: 'lb', color: '#1E3F20', vendors: ['loremipsumfarms', 'schrutefarms'], image: '../../assets/images/kale.png'},
 }
 
 /* END OF MOCK DB */
@@ -163,6 +163,9 @@ var dbHelpers = {
     },
     getCategoryColor(category) {
         return CATEGORIES[category].color;
+    },
+    getProductImage(product) {
+        return PRODUCTS[product].image;
     }
 }
 

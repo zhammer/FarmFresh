@@ -16,6 +16,7 @@ var containerStyle = {
     marginRight: '20px',
     height: '90px',
     background: '#C9C9CE',
+    position: 'relative'
 }
 
 function style (bgColor) {
@@ -48,7 +49,20 @@ var iconStyle = {
     background: 'none'
 }
 
-const BarWrapper = ({ title, color='grey'}) => {
+var imageStyle = {
+    position: 'absolute',
+    height: '100%',
+    top: '0%',
+    right: '5%',
+    fontSize: '40px',
+    marginLeft: '17px',
+    marginTop: '0px',
+    zIndex: '1',
+    color: '#8E8E93'
+}
+
+
+const BarWrapper = ({ title, image, color='grey'}) => {
     return (
         <div>
             <button
@@ -61,6 +75,7 @@ const BarWrapper = ({ title, color='grey'}) => {
                 <div style={style(color)}>
                     {title}
                 </div>
+                {image ? <img src={image} style={imageStyle}/> : null}
             </div>
         </div>
     )
@@ -69,6 +84,7 @@ const BarWrapper = ({ title, color='grey'}) => {
 BarWrapper.propTypes = {
     title: PropTypes.string.isRequired,
     color: PropTypes.string,
+    image: PropTypes.string,
 }
 
 export default BarWrapper;

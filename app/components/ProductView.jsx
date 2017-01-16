@@ -10,7 +10,8 @@ const ProductView = ({ productName, selectedVendor, justPurchased, onClick, onUp
         <div>
             <BarWrapper
                 title={StringHelpers.capitalizeFirstLetter(productName)}
-                color={dbHelpers.getProductColor(productName)}/>
+                color={dbHelpers.getProductColor(productName)}
+                image={dbHelpers.getProductImage(productName)}/>
         </div>
         <Vendors
             onClick={(vendorName) => onClick(vendorName)}
