@@ -3,7 +3,7 @@
 Farm Fresh is a functional mock UI for a service that would allow users to order quality local ingredients online. I initially designed the basic UI as part of an assignment for Jeff Huang's User Interface class at Brown. I built this mockup in React.js mainly to become more familiar with the React framework and web development as a whole.
 
 # Search Functionality
-Ingredients can either be searched directly by name – 'lobster' – or by category – '#seafood'. Keep in mind the database is very small and is simply written as a javascript file.
+I've always been interested in search-based apps in which the user never leaves the general UI of the search bar. In Farm Fresh, ingredients can either be searched directly by name – 'lobster' – or by category – '#seafood'. Keep in mind the database is very small and is simply written as a javascript file.
 
 ![Alt text](/assets/screenshots/ss_4.png?raw=true "Lobster page")
 
